@@ -21,76 +21,49 @@
 
 
 
-    <script>
-        const ctx = document.getElementById('myChart');
-
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
-                datasets: [{
-                    label: 'Umidade média',
-                    data: [90, 89, 93, 87, 88, 82],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-
-        const config = {
-  type: 'bar',
-  data,
-  options: {
-    indexAxis: 'y',
-  }
-};
-    </script>
-
-<script>
-    const ctx2 = document.getElementById('myChart2');
-
-    new Chart(ctx2, {
-        type: 'line',
-        data: {
-            labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
-            datasets: [{
-                label: 'Umidade média',
-                data: [90, 89, 93, 87, 88, 82],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-    const config2 = {
-type: 'bar',
-data,
-options: {
-indexAxis: 'y',
-}
-};
-</script>
-    
-
 
 </body>
-
 </html>
-<!-- aneiro	22	90
-Fevereiro	24	89
-Março	27	93
-Abril	23	87
-Maio	20	88
-Junho	18	82 -->
+<script>
+    const ctx = document.getElementById('myChart');
+    const labels = Utils.months({count: 7});
+    
+    ctx = {
+    labels: labels,
+    datasets: [
+        {
+    label: 'My First Dataset',
+    data: [65, 59, 80, 81, 56, 55, 40],
+    backgroundColor: [
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 205, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(201, 203, 207, 0.2)'
+    ],
+    borderColor: [
+      'rgb(255, 99, 132)',
+      'rgb(255, 159, 64)',
+      'rgb(255, 205, 86)',
+      'rgb(75, 192, 192)',
+      'rgb(54, 162, 235)',
+      'rgb(153, 102, 255)',
+      'rgb(201, 203, 207)'
+    ],
+    borderWidth: 1
+  }]
+};
+const config = {
+  type: 'line',
+  data: ctx,
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  },
+};
+</script>
