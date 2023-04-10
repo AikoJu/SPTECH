@@ -1,69 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChartJs!</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>ChartJs! </title>
 </head>
-
 <body>
-    <div style="display: flex; flex-direction: row; justify-content: space-evenly;">
-    <div style="width: 700px;">
-        <canvas id="myChart"></canvas>
+
+    <div class="container">
+        <canvas id="myLineChart"></canvas>
     </div>
-    <div style="width: 700px;">
-        <canvas id="myChart2"></canvas>
+    <div class="chart">
+        <canvas id="myBarChart"></canvas>
     </div>
-    </div>
-
-
-
-
 </body>
 </html>
+
 <script>
-    const ctx = document.getElementById('myChart');
-    const labels = Utils.months({count: 7});
-    
-    ctx = {
-    labels: labels,
-    datasets: [
-        {
-    label: 'My First Dataset',
-    data: [65, 59, 80, 81, 56, 55, 40],
-    backgroundColor: [
-      'rgba(255, 99, 132, 0.2)',
-      'rgba(255, 159, 64, 0.2)',
-      'rgba(255, 205, 86, 0.2)',
-      'rgba(75, 192, 192, 0.2)',
-      'rgba(54, 162, 235, 0.2)',
-      'rgba(153, 102, 255, 0.2)',
-      'rgba(201, 203, 207, 0.2)'
-    ],
-    borderColor: [
-      'rgb(255, 99, 132)',
-      'rgb(255, 159, 64)',
-      'rgb(255, 205, 86)',
-      'rgb(75, 192, 192)',
-      'rgb(54, 162, 235)',
-      'rgb(153, 102, 255)',
-      'rgb(201, 203, 207)'
-    ],
-    borderWidth: 1
-  }]
-};
-const config = {
-  type: 'line',
-  data: ctx,
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  },
-};
+    const horario = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+    ]
+
+    const temperatura = [30, 29, 28, 25, 22, 23];
+    const umidade = [80, 82, 80, 85, 80, 83];
+
+    const lineChart = document.getElementById('myLineChart');
+
+    new Chart(lineChart, {
+        data: {
+            datasets: [
+                {
+                    type: 'line',
+                    label: 'Temperatura',
+                    data: temperatura,
+                    backgroundColor: '#FF6384',
+                    borderColor: '#FF6384'
+                },
+                {
+                    type: 'line',
+                    label: 'Umidade',
+                    data: umidade,
+                    backgroundColor: '#36A2EB',
+                    borderColor: '#36A2EB'
+                }
+            ],
+            labels: horario,
+            options: {
+
+            }
+        },
+    });
+</script>
+
+
+<script>
+    const mes = [
+        'Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'Junho',
+    ]
+
+    const temperaturaMedia = [22, 24, 27, 23, 20, 18];
+    const umidadeMedia = [90, 89, 93, 87, 88, 82];
+
+    const barChart = document.getElementById('myBarChart');
+
+    new Chart(barChart, {
+        data: {
+            datasets: [
+                {
+                    type: 'bar',
+                    label: 'Temperatura média',
+                    data: temperaturaMedia,
+                    backgroundColor: '#FF6384',
+                },
+                {
+                    type: 'bar',
+                    label: 'Umidade média',
+                    data: umidadeMedia,
+                    backgroundColor: '#36A2EB',
+                }
+            ],
+            labels: mes
+        },
+    });
 </script>
